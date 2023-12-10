@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class FinalRewardItem : MonoBehaviour, IReward
 {
     [SerializeField]
+    private Button rewardButton;
+
+    [SerializeField]
     private Animator animator;
 
     const string pulsingOn = "Unlocked";
@@ -17,11 +20,10 @@ public class FinalRewardItem : MonoBehaviour, IReward
     }
 
     public event EventHandler OnRewardClicked;
-    Button rewardButton;
+
 
     void Awake()
     {
-        rewardButton = gameObject.GetComponent<Button>();
         UpdateVisual();
     }
 
@@ -78,11 +80,13 @@ public class FinalRewardItem : MonoBehaviour, IReward
 
     public void StartPulsing()
     {
-        animator.SetTrigger(pulsingOn);
+        if (animator != null && animator.isActiveAndEnabled)
+            animator.SetTrigger(pulsingOn);
     }
     public void StopPulsing()
     {
-        animator.SetTrigger(pulsingOff);
+        if (animator != null && animator.isActiveAndEnabled)
+            animator.SetTrigger(pulsingOff);
     }
 
     public void UpdateVisual()

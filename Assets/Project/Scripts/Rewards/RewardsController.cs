@@ -38,6 +38,11 @@ public class RewardsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         timeRemaining = rewardAvailablePeriod;
         LockAllRewards();
         UnlockRewardByIndex(1);
@@ -91,7 +96,6 @@ public class RewardsController : MonoBehaviour
 
     void SetSliderValue(float newValue)
     {
-        Debug.Log($"newValue {newValue}");
         rewardsSlider.value = newValue;
         sliderText.text = $"{newValue}/{rewardsSlider.maxValue}"; 
     }
@@ -186,7 +190,9 @@ public class RewardsController : MonoBehaviour
         }
 
         if(lastCollectedItem == null)
-            Debug.Log($"No rewards {lastItemState.ToString()}");
+        {
+            //Debug.Log($"No rewards {lastItemState.ToString()}");
+        }
 
         return lastCollectedItem;
     }

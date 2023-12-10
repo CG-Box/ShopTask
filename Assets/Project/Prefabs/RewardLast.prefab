@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a53994961a7c4b488d385dbb5d8ad0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardButton: {fileID: 6268216209145056792}
   animator: {fileID: 1622176810014255258}
   data:
     index: 7

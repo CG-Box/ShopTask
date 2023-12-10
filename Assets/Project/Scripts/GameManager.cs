@@ -91,4 +91,12 @@ public class GameManager : MonoBehaviour
     }
     void GameManager_OnShopCloses(object sender, EventArgs eventArgs)
     {}
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
 }
