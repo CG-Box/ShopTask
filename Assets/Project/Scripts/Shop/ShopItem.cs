@@ -127,16 +127,19 @@ public class ShopItem : MonoBehaviour
                 //chest
                 ShowBonusInfo();
                 HideTicketButton();
+                ShowMoneyButton();
                 break;
             case ShopItemType.Skin:
                 //skin
                 HideBonusInfo();
                 ShowTicketButton();
+                HideMoneyButton();
                 break;
             case ShopItemType.Location:
                 //location
                 HideBonusInfo();
                 ShowTicketButton();
+                HideMoneyButton();
                 break;
         }
         switch (data.state)
@@ -188,6 +191,14 @@ public class ShopItem : MonoBehaviour
     void HideTicketButton()
     {
         ticketButton.gameObject.SetActive(false);
+    }
+    void ShowMoneyButton()
+    {
+        moneyButton.gameObject.SetActive(true);
+    }
+    void HideMoneyButton()
+    {
+        moneyButton.gameObject.SetActive(false);
     }
     void ShowRequiredText()
     {
