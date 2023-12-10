@@ -18,11 +18,13 @@ public class GameData_SO: ScriptableObject
     {
         get { return highestCompletedLevel; }
     }
+    private long lastRewardGrab;
+    public long LastRewardGrab
+    {
+        get { return lastRewardGrab; }
+    }
 
-    public long lastRewardGrab;
-    public int rewardInRow;
-
-    public int ownedItemsAmount;
+    int ownedItemsAmount;
     public List<string> ownedItemsId;
 
     //public List<TreasureChest> treasureChestList;
@@ -33,7 +35,7 @@ public class GameData_SO: ScriptableObject
     {
         StaticEvents.Tickets.Added += AddTickets;
         StaticEvents.LevelUI.LevelCompleted += TrySetHighestCompletedLevel;
-
+        StaticEvents.Rewards.Collected += SetLastRewardTime;
         Init();
 
     }
@@ -41,6 +43,7 @@ public class GameData_SO: ScriptableObject
     {
         StaticEvents.Tickets.Added -= AddTickets;
         StaticEvents.LevelUI.LevelCompleted -= TrySetHighestCompletedLevel;
+        StaticEvents.Rewards.Collected -= SetLastRewardTime;
     }
 
     void Init()
@@ -61,7 +64,6 @@ public class GameData_SO: ScriptableObject
         tickets = 100;
 
         highestCompletedLevel = 0;
-        rewardInRow = 1;
 
         ownedItemsAmount = 0;
         ownedItemsId = new List<string>(ownedItemsAmount);
@@ -130,6 +132,11 @@ public class GameData_SO: ScriptableObject
     {
         highestCompletedLevel = levelNumer;
         SaveGameDataToPrefs();
+    }
+
+    public void SetLastRewardTime(int index, long rewardTime)
+    {
+        //Debug.Log($"rewardTime : {rewardTime}");
     }
 
     public void OwnShopItem(string id)

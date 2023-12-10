@@ -10,6 +10,15 @@ public class StaticEvents
         public static Action<int> UpdateUI;
     }
 
+    public class Rewards
+    {
+        public static Action LockedClick;
+        public static Action UnlockedClick;
+        public static Action CollectedClick;
+
+        public static Action<int, long> Collected;
+    }
+
     public class ShopSystem
     {
         public static Action PurchaseFromTicketsComplete;

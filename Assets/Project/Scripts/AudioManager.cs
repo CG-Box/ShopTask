@@ -39,6 +39,11 @@ public class AudioManager : MonoBehaviour
         StaticEvents.ShopSystem.PurchaseFailed += PlayPurchaseFailedSfx;
         StaticEvents.ShopSystem.PurchaseFromTicketsComplete += PlayPurchaseCompleteSfx;
         StaticEvents.ShopSystem.PurchaseFromTicketsDeclined += PlayPurchaseFromTicketsDeclinedSfx;
+
+        StaticEvents.Rewards.LockedClick += PlayRewardBlockedSfx;
+        StaticEvents.Rewards.UnlockedClick += PlayRewardUnlockedSfx;
+        StaticEvents.Rewards.CollectedClick += PlayRewardCollectedSfx;
+        
     }
     void OnDisable()
     {
@@ -52,6 +57,10 @@ public class AudioManager : MonoBehaviour
         StaticEvents.ShopSystem.PurchaseFailed -= PlayPurchaseFailedSfx;
         StaticEvents.ShopSystem.PurchaseFromTicketsComplete -= PlayPurchaseCompleteSfx;
         StaticEvents.ShopSystem.PurchaseFromTicketsDeclined -= PlayPurchaseFromTicketsDeclinedSfx;
+
+        StaticEvents.Rewards.LockedClick -= PlayRewardBlockedSfx;
+        StaticEvents.Rewards.UnlockedClick -= PlayRewardUnlockedSfx;
+        StaticEvents.Rewards.CollectedClick -= PlayRewardCollectedSfx;
     }
     #endregion
 
@@ -90,6 +99,19 @@ public class AudioManager : MonoBehaviour
     void PlayPurchaseFromTicketsDeclinedSfx()
     {
         PlaySfx("error");
+    }
+
+    void PlayRewardBlockedSfx()
+    {
+        PlaySfx("error");
+    }
+    void PlayRewardUnlockedSfx()
+    {
+        PlaySfx("magic");
+    }
+    void PlayRewardCollectedSfx()
+    {
+        //PlaySfx("error");
     }
     #endregion
 
