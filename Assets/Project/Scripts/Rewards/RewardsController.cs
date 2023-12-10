@@ -191,23 +191,7 @@ public class RewardsController : MonoBehaviour
         return lastCollectedItem;
     }
 
-    void RewardTimer()
-    {
 
-        long lastCollected = DateTime.Now.ToBinary();
-
-
-        DateTime mostRecentDateTime = DateTime.FromBinary(lastCollected);
-        DateTime newDateTime = DateTime.FromBinary(lastCollected);
-        // the greatest DateTime value is the most recent
-        if (newDateTime > mostRecentDateTime) 
-        {
-            Debug.Log("time has come");
-        }
-    }
-
-
-    // Update is called once per frame
     void Update()
     {
         UpdateTime();
